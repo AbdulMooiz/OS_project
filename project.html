@@ -92,6 +92,44 @@
       margin-top: 40px;
       font-size: 0.9em;
     }
+
+    /* 🌟 Added CSS styling for simple HTML sections */
+    section {
+      width: 80%;
+      background-color: white;
+      margin: 30px auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    section h2 {
+      color: #1565c0;
+      border-bottom: 2px solid #90caf9;
+      padding-bottom: 8px;
+      margin-bottom: 15px;
+    }
+
+    section p {
+      text-align: left;
+      font-size: 1.05em;
+      margin: 8px 0;
+    }
+
+    section ul {
+      list-style-type: circle;
+      padding-left: 40px;
+      font-size: 1.05em;
+      color: #333;
+    }
+
+    section li {
+      margin-bottom: 8px;
+    }
+
+    section li::marker {
+      color: #1976d2;
+    }
   </style>
 </head>
 
@@ -131,20 +169,26 @@
     © 2025 Daily Motivation | Designed with ❤️ by Team Riphah
   </footer>
 
-  <!-- Added simple HTML section (no CSS or JS applied) -->
-  <h2>Contact Us</h2>
-  <p>Email: dailyquotes@motivation.com</p>
-  <p>Phone: +92 300 1234567</p>
+  <!-- 🌟 Wrapped simple sections in <section> for styling -->
+  <section>
+    <h2>Contact Us</h2>
+    <p><strong>Email:</strong> dailyquotes@motivation.com</p>
+    <p><strong>Phone:</strong> +92 300 1234567</p>
+  </section>
 
-  <h2>Our Mission</h2>
-  <p>To inspire individuals every day by spreading positivity and encouragement through meaningful quotes.</p>
+  <section>
+    <h2>Our Mission</h2>
+    <p>To inspire individuals every day by spreading positivity and encouragement through meaningful quotes.</p>
+  </section>
 
-  <h2>More Inspiration</h2>
-  <ul>
-    <li>Stay positive even in hard times.</li>
-    <li>Focus on progress, not perfection.</li>
-    <li>Believe in yourself and your dreams.</li>
-  </ul>
+  <section>
+    <h2>More Inspiration</h2>
+    <ul>
+      <li>Stay positive even in hard times.</li>
+      <li>Focus on progress, not perfection.</li>
+      <li>Believe in yourself and your dreams.</li>
+    </ul>
+  </section>
 
   <script>
     // Array of motivational quotes
