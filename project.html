@@ -6,7 +6,6 @@
   <title>Daily Motivation</title>
 
   <style>
-    /* General Page Style */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(to right, #f9f9f9, #e3f2fd);
@@ -16,7 +15,6 @@
       line-height: 1.6;
     }
 
-    /* Header */
     h1 {
       text-align: center;
       background-color: #1976d2;
@@ -27,7 +25,6 @@
       letter-spacing: 1px;
     }
 
-    /* Navigation Bar */
     p a {
       text-decoration: none;
       color: #1976d2;
@@ -54,29 +51,11 @@
       margin: 10px auto 20px auto;
     }
 
-    /* Sections */
     h2, h3 {
       color: #0d47a1;
       text-align: center;
     }
 
-    h2 {
-      margin-top: 30px;
-      font-size: 1.8em;
-    }
-
-    h3 {
-      margin-top: 25px;
-      font-size: 1.4em;
-    }
-
-    p {
-      width: 80%;
-      margin: 10px auto;
-      text-align: center;
-    }
-
-    /* Quote Style */
     blockquote {
       background: #e3f2fd;
       border-left: 5px solid #1976d2;
@@ -88,7 +67,23 @@
       border-radius: 8px;
     }
 
-    /* Footer / Credits */
+    button {
+      display: block;
+      margin: 10px auto;
+      background-color: #1976d2;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #0d47a1;
+    }
+
     footer {
       text-align: center;
       background-color: #1976d2;
@@ -110,13 +105,16 @@
   <hr>
 
   <h2>Welcome to Daily Motivation</h2>
+  <p id="date"></p>
   <p>Start your day with a positive thought!</p>
 
   <h3>Today's Quote:</h3>
-  <blockquote>
+  <blockquote id="quote">
     "Success is not final, failure is not fatal: It is the courage to continue that counts."  
     — Winston Churchill
   </blockquote>
+
+  <button id="newQuoteBtn">Show Another Quote</button>
 
   <h3>About</h3>
   <p>This website shares one motivational quote each day to inspire you to stay positive and focused.</p>
@@ -132,5 +130,35 @@
   <footer>
     © 2025 Daily Motivation | Designed with ❤️ by Team Riphah
   </footer>
+
+  <script>
+    // Array of motivational quotes
+    const quotes = [
+      '"Success is not final, failure is not fatal: It is the courage to continue that counts." — Winston Churchill',
+      '"The future depends on what you do today." — Mahatma Gandhi',
+      '"Believe you can and you’re halfway there." — Theodore Roosevelt',
+      '"Don’t watch the clock; do what it does. Keep going." — Sam Levenson',
+      '"Start where you are. Use what you have. Do what you can." — Arthur Ashe',
+      '"Push yourself, because no one else is going to do it for you."',
+      '"Dream big. Work hard. Stay humble."',
+      '"Great things never come from comfort zones."',
+      '"Every day may not be good, but there’s something good in every day."',
+      '"The best time for new beginnings is now."'
+    ];
+
+    // Display today's date
+    const dateElement = document.getElementById("date");
+    const today = new Date();
+    dateElement.textContent = "Today's Date: " + today.toDateString();
+
+    // Change quote when button is clicked
+    const quoteElement = document.getElementById("quote");
+    const newQuoteBtn = document.getElementById("newQuoteBtn");
+
+    newQuoteBtn.addEventListener("click", () => {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      quoteElement.textContent = quotes[randomIndex];
+    });
+  </script>
 </body>
 </html>
