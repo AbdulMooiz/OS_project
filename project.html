@@ -101,6 +101,7 @@
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: 0.3s ease;
     }
 
     section h2 {
@@ -172,26 +173,35 @@
   <!-- 🌟 Wrapped simple sections in <section> for styling -->
   <section>
     <h2>Contact Us</h2>
-    <p><strong>Email:</strong> dailyquotes@motivation.com</p>
-    <p><strong>Phone:</strong> +92 300 1234567</p>
+    <div class="content">
+      <p><strong>Email:</strong> dailyquotes@motivation.com</p>
+      <p><strong>Phone:</strong> +92 300 1234567</p>
+    </div>
+    <button class="toggle-btn">Hide Section</button>
   </section>
 
   <section>
     <h2>Our Mission</h2>
-    <p>To inspire individuals every day by spreading positivity and encouragement through meaningful quotes.</p>
+    <div class="content">
+      <p>To inspire individuals every day by spreading positivity and encouragement through meaningful quotes.</p>
+    </div>
+    <button class="toggle-btn">Hide Section</button>
   </section>
 
   <section>
     <h2>More Inspiration</h2>
-    <ul>
-      <li>Stay positive even in hard times.</li>
-      <li>Focus on progress, not perfection.</li>
-      <li>Believe in yourself and your dreams.</li>
-    </ul>
+    <div class="content">
+      <ul>
+        <li>Stay positive even in hard times.</li>
+        <li>Focus on progress, not perfection.</li>
+        <li>Believe in yourself and your dreams.</li>
+      </ul>
+    </div>
+    <button class="toggle-btn">Hide Section</button>
   </section>
 
   <script>
-    // Array of motivational quotes
+    // ---------------- Existing JavaScript ----------------
     const quotes = [
       '"Success is not final, failure is not fatal: It is the courage to continue that counts." — Winston Churchill',
       '"The future depends on what you do today." — Mahatma Gandhi',
@@ -205,18 +215,34 @@
       '"The best time for new beginnings is now."'
     ];
 
-    // Display today's date
     const dateElement = document.getElementById("date");
     const today = new Date();
     dateElement.textContent = "Today's Date: " + today.toDateString();
 
-    // Change quote when button is clicked
     const quoteElement = document.getElementById("quote");
     const newQuoteBtn = document.getElementById("newQuoteBtn");
 
     newQuoteBtn.addEventListener("click", () => {
       const randomIndex = Math.floor(Math.random() * quotes.length);
       quoteElement.textContent = quotes[randomIndex];
+    });
+
+    // ---------------- 🌟 NEW JavaScript for Sections ----------------
+    const toggleButtons = document.querySelectorAll(".toggle-btn");
+
+    toggleButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const section = btn.closest("section");
+        const content = section.querySelector(".content");
+
+        if (content.style.display === "none") {
+          content.style.display = "block";
+          btn.textContent = "Hide Section";
+        } else {
+          content.style.display = "none";
+          btn.textContent = "Show Section";
+        }
+      });
     });
   </script>
 </body>
